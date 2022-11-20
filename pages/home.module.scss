@@ -1,0 +1,7 @@
+@use '/styles/mixins/flexbox';
+
+.wrapper {
+  @include flexbox.flexbox;
+  font-size: 20px;
+  background-color: pink;
+}
