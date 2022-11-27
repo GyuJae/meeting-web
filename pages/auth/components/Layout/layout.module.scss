@@ -1,0 +1,6 @@
+@use '/styles/mixins/flexbox';
+
+.wrapper {
+  @include flexbox.flexbox;
+  padding: 80px 0;
+}

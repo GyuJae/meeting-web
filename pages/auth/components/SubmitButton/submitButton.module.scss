@@ -1,0 +1,26 @@
+@use '/styles/constants/colors';
+
+.button {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: colors.$WHITE;
+  background-color: colors.$PURPLE;
+  border-radius: 4px;
+  transition: filter 80ms ease-in-out;
+
+  &:hover {
+    filter: brightness(130%);
+  }
+
+  &:active {
+    filter: brightness(90%);
+  }
+
+  &:disabled {
+    color: colors.$GRAY6;
+    pointer-events: none;
+    background-color: colors.$GRAYE;
+  }
+}

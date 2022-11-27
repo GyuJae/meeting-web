@@ -1,0 +1,35 @@
+@use '/styles/constants/colors';
+
+.container {
+  width: 100%;
+
+  .input {
+    height: 44px;
+    padding: 11px 12px;
+    font-size: 18px;
+    line-height: 1.33;
+    border: 1px solid colors.$GRAY9;
+    border-radius: 4px;
+    transition: border 80ms ease-out, box-shadow 80ms ease-out;
+
+    &:focus {
+      border: none;
+      box-shadow: 0 0 0 4px rgba(0, 122, 255, 30%);
+    }
+
+    &.inValid {
+      border: 1px solid colors.$RED;
+
+      &:focus {
+        border: none;
+        box-shadow: 0 0 0 4px rgba(255, 59, 48, 30%);
+      }
+    }
+  }
+
+  .errorMessage {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    color: colors.$RED;
+  }
+}
