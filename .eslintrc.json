@@ -6,9 +6,10 @@
     "react-app",
     "prettier",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
-  "plugins": ["unused-imports", "simple-import-sort"],
+  "plugins": ["unused-imports", "simple-import-sort", "@tanstack/query"],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -27,6 +28,8 @@
     }
   },
   "rules": {
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/prefer-query-object-syntax": "error",
     "import/extensions": [
       "error",
       "ignorePackages",

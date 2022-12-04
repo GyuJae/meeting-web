@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { NextPageWithLayout } from '@/pages/_app.page';
 
 import { Input, Layout, SubmitButton } from '../components';
+import { useLogin } from '../hooks';
 import styles from './login.module.scss';
 
 interface LoginForm {
@@ -19,8 +20,12 @@ const Login: NextPageWithLayout = () => {
   } = useForm<LoginForm>({ mode: 'onChange' });
   const formId = useId();
 
+  const { login } = useLogin();
+
   const handleSubmit: SubmitHandler<LoginForm> = (input) => {
-    console.log(input);
+    login({
+      input,
+    });
   };
 
   return (
