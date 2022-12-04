@@ -1,6 +1,7 @@
 import React, { ReactElement, useId } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { withApi } from '@/libs';
 import { NextPageWithLayout } from '@/pages/_app.page';
 
 import { Input, Layout, SubmitButton } from '../components';
@@ -20,11 +21,14 @@ const Login: NextPageWithLayout = () => {
   } = useForm<LoginForm>({ mode: 'onChange' });
   const formId = useId();
 
-  const { login } = useLogin();
+  const { login, fetching } = useLogin();
+  const handleSubmit: SubmitHandler<LoginForm> = async (input) => {
+    if (fetching) return;
 
-  const handleSubmit: SubmitHandler<LoginForm> = (input) => {
-    login({
-      input,
+    await login({
+      input: {
+        ...input,
+      },
     });
   };
 
@@ -75,7 +79,7 @@ const Login: NextPageWithLayout = () => {
   );
 };
 
-export default Login;
+export default withApi(Login);
 
 Login.getLayout = (page: ReactElement) => {
   return <Layout>{page}</Layout>;
